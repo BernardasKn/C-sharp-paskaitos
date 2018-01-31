@@ -11,6 +11,8 @@ namespace _13_03_pavyzdziai
         static void Main(string[] args)
         {
             Pasisveikinti();
+            Program p = new Program();
+            p.Atsisveikinti();
         }
 
         private static void Pasisveikinti()
@@ -18,6 +20,10 @@ namespace _13_03_pavyzdziai
             Console.WriteLine("Labas");
         }
 
+        private void Atsisveikinti()
+        {
+            Console.WriteLine("Viso gero");
+        }
 
     }
 }
