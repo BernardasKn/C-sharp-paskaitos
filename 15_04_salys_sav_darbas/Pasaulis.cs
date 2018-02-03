@@ -25,7 +25,6 @@ namespace _15_04_salys_sav_darbas
                 }
             }
 
-
             return gyv;
         }
 
@@ -43,32 +42,74 @@ namespace _15_04_salys_sav_darbas
                 }
             }
 
-
             return gyv;
         }
 
         public Miestas TankiausiaiGyventoju()
         {
             var gyv = SaliuSarasas.First().MiestuSarasas.First(); // miestas
-            //var gyvtankis = 0;
             foreach (var salis in SaliuSarasas)
             {
                 foreach (var miestas in salis.MiestuSarasas)
                 {
-                    if (miestas.GyventojuSkaicius/miestas.PlotasKvKm > gyv.GyventojuSkaicius/miestas.PlotasKvKm)
+                    if (miestas.GyventojuTankis > gyv.GyventojuTankis)
                     {
                         gyv = miestas;
-                        //gyvtankis = (double).miestas.GyventojuSkaicius / miestas.PlotasKvKm;
-
                     }
                 }
             }
 
+            return gyv;
+        }
+        public Miestas MaziausiasTankis()
+        {
+            var gyv = SaliuSarasas.First().MiestuSarasas.First(); // miestas
+            foreach (var salis in SaliuSarasas)
+            {
+                foreach (var miestas in salis.MiestuSarasas)
+                {
+                    if (miestas.GyventojuTankis < gyv.GyventojuTankis)
+                    {
+                        gyv = miestas;
+                    }
+                }
+            }
 
             return gyv;
         }
 
+        public Miestas DidziausiaBpv()
+        {
+            var gyv = SaliuSarasas.First().MiestuSarasas.First(); // miestas
+            foreach (var salis in SaliuSarasas)
+            {
+                foreach (var miestas in salis.MiestuSarasas)
+                {
+                    if (miestas.BendrojiPridetineVerte > gyv.BendrojiPridetineVerte)
+                    {
+                        gyv = miestas;
+                    }
+                }
+            }
 
+            return gyv;
+        }
+        public Miestas MaziausiaBpv()
+        {
+            var gyv = SaliuSarasas.First().MiestuSarasas.First(); // miestas
+            foreach (var salis in SaliuSarasas)
+            {
+                foreach (var miestas in salis.MiestuSarasas)
+                {
+                    if (miestas.BendrojiPridetineVerte < gyv.BendrojiPridetineVerte)
+                    {
+                        gyv = miestas;
+                    }
+                }
+            }
+
+            return gyv;
+        }
     }
 
 }    
